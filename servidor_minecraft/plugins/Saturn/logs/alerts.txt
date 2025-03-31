@@ -1,0 +1,37 @@
+[2025-03-31 13:03:12] Player: zbiel_, Check: FakeGround, Violations: 1, Information: Client/Server ground not matching., Debug: Client ground: true Server ground: false
+[2025-03-31 13:03:13] Player: zbiel_, Check: FakeGround, Violations: 2, Information: Client/Server ground not matching., Debug: Client ground: true Server ground: false
+[2025-03-31 13:03:13] Player: zbiel_, Check: FakeGround, Violations: 3, Information: Client/Server ground not matching., Debug: Client ground: true Server ground: false
+[2025-03-31 13:03:13] Player: zbiel_, Check: Flight, Violations: 1, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
+[2025-03-31 13:03:13] Player: zbiel_, Check: FakeGround, Violations: 4, Information: Client/Server ground not matching., Debug: Client ground: true Server ground: false
+[2025-03-31 13:03:13] Player: zbiel_, Check: Flight, Violations: 2, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
+[2025-03-31 13:03:13] Player: zbiel_, Check: FakeGround, Violations: 5, Information: Client/Server ground not matching., Debug: Client ground: true Server ground: false
+[2025-03-31 13:03:13] Player: zbiel_, Check: Flight, Violations: 3, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
+[2025-03-31 13:03:13] Player: zbiel_, Check: FakeGround, Violations: 6, Information: Client/Server ground not matching., Debug: Client ground: true Server ground: false
+[2025-03-31 13:03:13] Player: zbiel_, Check: Flight, Violations: 4, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
+[2025-03-31 13:03:13] Player: zbiel_, Check: FakeGround, Violations: 7, Information: Client/Server ground not matching., Debug: Client ground: true Server ground: false
+[2025-03-31 13:03:13] Player: zbiel_, Check: Flight, Violations: 5, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
+[2025-03-31 13:03:14] Player: zbiel_, Check: Flight, Violations: 6, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
+[2025-03-31 13:03:14] Player: zbiel_, Check: FakeGround, Violations: 8, Information: Client/Server ground not matching., Debug: Client ground: true Server ground: false
+[2025-03-31 13:03:14] Player: zbiel_, Check: Flight, Violations: 7, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
+[2025-03-31 13:03:14] Player: zbiel_, Check: FakeGround, Violations: 9, Information: Client/Server ground not matching., Debug: Client ground: true Server ground: false
+[2025-03-31 13:03:14] Player: zbiel_, Check: Flight, Violations: 8, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
+[2025-03-31 13:03:14] Player: zbiel_, Check: FakeGround, Violations: 10, Information: Client/Server ground not matching., Debug: Client ground: true Server ground: false
+[2025-03-31 13:03:14] Player: zbiel_, Check: Flight, Violations: 9, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
+[2025-03-31 13:03:15] Player: zbiel_, Check: FakeGround, Violations: 11, Information: Client/Server ground not matching., Debug: Client ground: true Server ground: false
+[2025-03-31 13:03:15] Player: zbiel_, Check: Flight, Violations: 10, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
+[2025-03-31 13:03:15] Player: zbiel_, Check: FakeGround, Violations: 1, Information: Client/Server ground not matching., Debug: Client ground: true Server ground: false
+[2025-03-31 13:03:15] Player: zbiel_, Check: Flight, Violations: 11, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
+[2025-03-31 13:03:15] Player: zbiel_, Check: FakeGround, Violations: 2, Information: Client/Server ground not matching., Debug: Client ground: true Server ground: false
+[2025-03-31 13:03:15] Player: zbiel_, Check: Flight, Violations: 1, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
+[2025-03-31 13:03:15] Player: zbiel_, Check: FakeGround, Violations: 3, Information: Client/Server ground not matching., Debug: Client ground: true Server ground: false
+[2025-03-31 13:03:15] Player: zbiel_, Check: Flight, Violations: 2, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
+[2025-03-31 13:03:15] Player: zbiel_, Check: FakeGround, Violations: 4, Information: Client/Server ground not matching., Debug: Client ground: true Server ground: false
+[2025-03-31 13:03:15] Player: zbiel_, Check: Flight, Violations: 3, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
+[2025-03-31 13:05:28] Player: zbiel_, Check: Flight, Violations: 1, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
+[2025-03-31 13:05:28] Player: zbiel_, Check: Flight, Violations: 2, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
+[2025-03-31 13:05:28] Player: zbiel_, Check: Flight, Violations: 3, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
+[2025-03-31 13:05:28] Player: zbiel_, Check: Flight, Violations: 4, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
+[2025-03-31 13:05:29] Player: zbiel_, Check: Flight, Violations: 1, Information: Suspicious flight behavior (constant deltaY in the air), Debug: LastDeltaY: 0.0 PreviousDeltaY: 0.0 TimeDifference: 1000
+[2025-03-31 13:05:29] Player: zbiel_, Check: Flight, Violations: 5, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
+[2025-03-31 13:05:30] Player: zbiel_, Check: Flight, Violations: 2, Information: Suspicious flight behavior (constant deltaY in the air), Debug: LastDeltaY: 0.0 PreviousDeltaY: 0.0 TimeDifference: 1000
+[2025-03-31 13:05:30] Player: zbiel_, Check: Flight, Violations: 6, Information: Predicts invalid movements., Debug: Prediction: -0.0784000015258789
