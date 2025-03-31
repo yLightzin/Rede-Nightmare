@@ -47,3 +47,25 @@
 [00:42:57] [Server thread/INFO]: Unknown or incomplete command, see below for error
 /op Lightz_13<--[HERE]
 [00:43:04] [Server thread/INFO]: Made Lightz_13 a server operator
+[01:03:27] [Server thread/INFO]: Stopping server
+[01:03:27] [Server thread/INFO]: Saving players
+[01:03:27] [Server thread/INFO]: Saving worlds
+[01:03:27] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[01:03:27] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
+[01:03:27] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
+[01:03:27] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
+[01:03:27] [Server thread/INFO]: [ChunkHolderManager] Saved 795 block chunks, 6 entity chunks, 0 poi chunks in world 'world' in 0.49s
+[01:03:27] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[01:03:27] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
+[01:03:27] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
+[01:03:27] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
+[01:03:28] [Server thread/INFO]: [ChunkHolderManager] Saved 793 block chunks, 0 entity chunks, 0 poi chunks in world 'world_nether' in 0.29s
+[01:03:28] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[01:03:28] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
+[01:03:28] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
+[01:03:28] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
+[01:03:28] [Server thread/INFO]: [ChunkHolderManager] Saved 792 block chunks, 10 entity chunks, 0 poi chunks in world 'world_the_end' in 0.29s
+[01:03:28] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[01:03:28] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[01:03:28] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[01:03:28] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
