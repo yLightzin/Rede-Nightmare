@@ -1,0 +1,989 @@
+# ┌───────────────────────────────────────────────────────────┐
+# │                                                           │
+# │                                                           │
+# │                       _.oo.                               │
+# │                   _.u[[/;:,.         .odMMMMMM'           │
+# │                .o888UU[[[/;:-.  .o@P^    MMM^             │
+# │               oN88888UU[[[/;::-.        dP^               │
+# │              dNMMNN888UU[[[/;:--.   .o@P^                 │
+# │             ,MMMMMMN888UU[[/;::-. o@^                     │
+# │             NNMMMNN888UU[[[/~.o@P^                        │
+# │             888888888UU[[[/o@^-..                         │
+# │            oI8888UU[[[/o@P^:--..                          │
+# │         .@^  YUU[[[/o@^;::---..                           │
+# │       oMP     ^/o@P^;:::---..                             │
+# │    .dMMM    .o@^ ^;::---...                               │
+# │   dMMMMMMM@^`       `^^^^                                 │
+# │  YMMMUP^                                                  │
+# │   ^^                                                      │
+# │                                                           │
+# │                // Saturn Anticheat //                     │
+# │                    Author: Kod3ra                         │
+# │        Minecraft Modern Anticheat - Packet Based          │
+# │                                                           │
+# └───────────────────────────────────────────────────────────┘
+
+# ============================= MESSAGES =============================
+
+saturn-help:
+  HEADER: "§8§l[§6Saturn§8§l]»"
+  COMMANDS:
+    COMMAND1: "§6/saturn §7» §rShow you if Saturn is running."
+    COMMAND2: "§6/saturn help §7» §rShow you every commands of saturn."
+    COMMAND3: "§6/saturn notify §7» §rNotify the server or staff."
+    COMMAND4: "§6/saturn history §7» §rShow the history of the violations."
+    COMMAND5: "§6/saturn server §7» §rShow a lot of information about the server."
+    COMMAND6: "§6/saturn client §7» §rShow the client of a player."
+    COMMAND7: "§6/saturn crash §7» §rCrash the player's client."
+    COMMAND8: "§6/saturn kb §7» §rTest the knockback of a player."
+    COMMAND9: "§6/saturn profile §7» §rInformation/Profile about a player."
+    COMMAND10: "§6/saturn gui §7» §rOpens the GUI/Menu."
+
+saturn-notify:
+  PREFIX: "§r" # This is only the prefix of the command.
+  USAGE: "§8§l[§6Saturn§8§l]» §7Usage: /saturn notify <staff/everyone> <text>"
+  INVALID-TARGET: "§8§l[§6Saturn§8§l]» §7Invalid target, use staff or everyone."
+
+saturn-history:
+  NO-VIOLATIONS: "§8§l[§6Saturn§8§l]» §7No violations logs found."
+  USAGE: "§8§l[§6Saturn§8§l]» §7Usage: /%label%"
+  ERROR: "§8§l[§6Saturn§8§l]» §7An error occurred while reading the logs."
+  HEADER: "§8§l[§6Saturn§8§l]»"
+  LOGS-AMOUNT: 30
+
+saturn-client:
+  CLIENT-MESSAGE: "§8§l[§6Saturn§8§l]» §7%player% is using %client%."
+  INVALID-TARGET: "§8§l[§6Saturn§8§l]» §7Invalid target."
+  USAGE: "§8§l[§6Saturn§8§l]» §7Usage: /saturn client <player>."
+
+saturn-crash:
+  USAGE: "§8§l[§6Saturn§8§l]» §7Usage: /saturn crash <player> <method>."
+  INVALID-METHOD: "§8§l[§6Saturn§8§l]» §7Invalid method, position/explosion/particle."
+  CRASH-MESSAGE: "§8§l[§6Saturn§8§l]» §7You crashed the client of %player%."
+  INVALID-TARGET: "§8§l[§6Saturn§8§l]» §7Invalid target."
+
+saturn-server:
+  HEADER: "§8§l[§6Saturn§8§l]»"
+  TPS: "§7TPS (Ticks Per Second): §r%tps0%, %tps1%, %tps2%"
+  SERVERVERSION: "§7Server Version: §r%serverVersion%"
+  PLAYERCOUNT: "§7Number of Connected Players: §r%playerCount%"
+  AVERAGEPING: "§7Average Player Ping: §r%averagePing%"
+  LAGSTATUS: "§7Lag Status: %lagStatus%"
+  PROCESSORS: "§7Number of Available Processors: §r%processors%"
+  MAXMEMORY: "§7Maximum Server Memory: §r%maxMemory% MB"
+  USEDMEMORY: "§7Used Server Memory: §r%usedMemory% MB"
+  JREDIRECTORY: "§7JRE Directory: §r%jreDirectory%"
+  JREVERSION: "§7JRE Version: §r%jreVersion%"
+  OSARCHITECTURE: "§7OS Architecture: §r%osArchitecture%"
+  OSNAME: "§7OS Name: §r%osName%"
+  OSVERSION: "§7OS Version: §r%osVersion%"
+
+saturn-kb:
+  USAGE: "§8§l[§6Saturn§8§l]» §7Usage: /saturn kb <player>."
+  KB-MESSAGE: "§8§l[§6Saturn§8§l]» §7You knock-backed %player%."
+  INVALID-TARGET: "§8§l[§6Saturn§8§l]» §7Invalid target."
+
+saturn-profile:
+  USAGE: "§8§l[§6Saturn§8§l]» §7Usage: /saturn profile <player>."
+  INVALID-TARGET: "§8§l[§6Saturn§8§l]» §7Invalid target."
+  HEADER: "§8§l[§6Saturn§8§l]» §7Information about: %player%"
+  CLIENT: "§7Client: §r%client%"
+  VERSION: "§7Client version: §r%version%"
+  PING: "§7Ping: §r%ping%ms"
+
+alerts:
+  # The format for displaying alerts.
+  FORMAT: "§8§l[§6Saturn§8§l]» §7%player% §rfailed §6%check% *(%type%)* §7(x%violations%)"
+
+  # The frequency at which alerts are sent.
+  # If set to 2, an alert will be sent every 2 violations/alerts.
+  SEND-FREQUENCY: 1
+
+hover:
+  # The format for displaying hover information.
+  FORMAT: "§6Ping: §r%ping%ms\n§6TPS: §r%tps1m% §7(1m), §r%tps5m% §7(5m), §r%tps15m% §7(15m)\n§6Information: §r%information%\n§6Debug: §r%debug%"
+
+# ============================= SETTINGS =============================
+
+discord:
+  # Configuration for the webhook used to send alerts to Discord
+  ALERT-WEBHOOK:
+    # Whether the alert webhook is enabled
+    ENABLED: false
+    # The URL of your alert webhook
+    URL: "https://discord.com/api/webhooks/your_alert_webhook_url_here"
+
+    # The frequency at which webhook alerts are sent.
+    # If set to 2, an webhook alert will be sent every 2 violations/alerts.
+    SEND-FREQUENCY: 5
+
+  # Note: You should use another webhook for punishment, so you will not have the error "request limit".
+  # Configuration for the webhook used to send punishment notifications to Discord
+  PUNISHMENT-WEBHOOK:
+    # Whether the punishment webhook is enabled
+    ENABLED: false
+    # The URL of your punishment webhook
+    URL: "https://discord.com/api/webhooks/your_punishment_webhook_url_here"
+
+
+client:
+  # List of blocked modified clients
+  # Add the names of modified clients you want to block here
+  # featherclient: https://feathermc.com
+  # lunarclient: https://www.lunarclient.com
+  # forge: https://files.minecraftforge.net/net/minecraftforge/forge/
+  # optifine: https://optifine.net/home
+  # fabric: https://fabricmc.net
+  # worldeditcui: https://www.curseforge.com/minecraft/mc-mods/worldeditcui
+  # Note: LunarClient have a worldeditcui brand too, so if you block worldeditcui might block LunarClient.
+  BLOCKED:
+    - 'example'
+    - 'another example'
+    - 'you can add brand client'
+
+  KICK-MESSAGE: "§cYou are using a blocked client: %client%."
+
+setback:
+  # Specifies whether setback feature is enabled or not
+  ENABLED: false
+
+  # Types of setback actions:
+  # - teleport: It will teleport the player to the last location.
+  # - head_rotation: It will rotate the player's head.
+  # - drag_down: Drag the player down to the ground.
+  # - bad_effects: Apply negative effects such as Weakness II, Slowness IIIII, Blindness II, Confusion (nausea) III for 2 seconds on every setback.
+  # - ultimate: It combines "teleport" and "head_rotation" actions.
+  TYPE: "ultimate" # Specifies the type of setback action to be performed, options: teleport, head_rotation, drag_down, bad_effects, ultimate
+
+violations:
+  # Time interval (in seconds) after which the violations should be reset.
+  RESET-TIME: 120
+
+  # Does creative player bypass the anticheat ?
+  CREATIVE-BYPASS: true
+
+  # Does the player allowed to flight bypass the anticheat ? (Ex: /fly)
+  ALLOW-FLIGHT-BYPASS: true
+
+  # Configuration section for violation decay settings
+  VL-DECAY:
+    # Amount of violations to decrease each time.
+    AMOUNT: 1
+    # Time interval (in seconds) after which violations should be decreased.
+    TIME: 15
+
+
+punishments:
+  ALERT: "saturnnotify staff §7[§5!§7] §7Spectate §6%player% §7because he might be cheating!"
+  CRASH: "saturncrash %player% explosion"
+  KICK: "kick %player% §c Unfair Advantage"
+  BAN: "ban %player% §c Unfair Advantage"
+  BROADCAST:
+    ENABLED: true
+    SEND-TO: everyone # Options: everyone or staff
+    LINE1: "§8§m-----------------------------------"
+    LINE2: " §7      %player% has been punished by"
+    LINE3: " §6          Saturn Anticheat"
+    LINE4: "§8§m---------------------------------"
+  # LINE5: ... U can add many lines as you want!
+
+checks:
+
+# ExampleA:
+#   ENABLED: true          # Indicates whether this check is enabled or not.
+#   MAX-VL: 30             # Maximum number of violations before punishment is applied.
+#   PUNISHMENT: "ALERT"    # Type of punishment to apply in case of violation.
+#   MAX-PING: 2000         # The check will be disabled if the player's ping exceeds this value.
+#   MIN-TPS: 12            # The check will be disabled if the server's TPS is below this value.
+#   BUFFER-ADD: 1          # Value that is being added when the check is being flagged.
+#   BUFFER-REDUCE: 0.05    # Value that is being removed every tick to the buffer count.
+#   BUFFER-FLAG: 5         # Buffer threshold at which a violation is triggered.
+
+
+  # Combat
+
+  # Can false if player use optifine zoom
+  AimA:
+    ENABLED: true
+    MAX-VL: 5
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.01
+    BUFFER-FLAG: 3
+
+  AimB:
+    ENABLED: true
+    MAX-VL: 5
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1.5
+    BUFFER-REDUCE: 0.01
+    BUFFER-FLAG: 1
+
+  AimC:
+    ENABLED: true
+    MAX-VL: 5
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.085
+    BUFFER-FLAG: 4
+
+  AimD:
+    ENABLED: true
+    MAX-VL: 5
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.01
+    BUFFER-FLAG: 5
+
+  # I highly recommend to not put the AutoClicker checks on autoban because an AutoClicker check can always false because it is based on statistics.
+  AutoClickerA:
+    ENABLED: true
+    MAX-CPS: 20
+    MAX-VL: 40
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.01
+    BUFFER-FLAG: 1
+
+  AutoClickerB:
+    ENABLED: true
+    MAX-VL: 15
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.225
+    BUFFER-FLAG: 15
+
+  AutoClickerC:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.05
+    BUFFER-FLAG: 2
+
+  AutoClickerD:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.00005
+    BUFFER-FLAG: 2
+
+  AutoClickerE:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.005
+    BUFFER-FLAG: 6
+
+  AutoClickerF:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.0159
+    BUFFER-FLAG: 3
+
+  AutoClickerG:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.00005
+    BUFFER-FLAG: 2
+
+  AutoClickerH:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.00005
+    BUFFER-FLAG: 5
+
+  AutoClickerI:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.0555
+    BUFFER-FLAG: 3
+
+  AutoClickerJ:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.00005
+    BUFFER-FLAG: 2
+
+  AutoClickerK:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.01585
+    BUFFER-FLAG: 3
+
+  AutoClickerL:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.00885
+    BUFFER-FLAG: 9
+
+  AutoClickerM:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.75
+    BUFFER-REDUCE: 0.02
+    BUFFER-FLAG: 5
+
+  AutoClickerN:
+    ENABLED: false
+    MAX-VL: 10
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.75
+    BUFFER-FLAG: 15
+
+  AutoClickerO:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.0005
+    BUFFER-FLAG: 2
+
+  # CriticalsA is not an "advanced check", so it will false if server/player lags and attack.
+  CriticalsA:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.005
+    BUFFER-FLAG: 4
+
+  KillAuraA:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.0005
+    BUFFER-FLAG: 3
+
+  KillAuraB:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.0005
+    BUFFER-FLAG: 3
+
+  KillAuraC:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 2
+    BUFFER-REDUCE: 0.0025
+    BUFFER-FLAG: 6
+
+  KillAuraD:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.0009
+    BUFFER-FLAG: 0.85
+
+  KillAuraE:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.0043
+    BUFFER-FLAG: 4
+
+  KillAuraF:
+    ENABLED: true
+    MAX-VL: 40
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.029
+    BUFFER-FLAG: 18
+
+  KillAuraG:
+    ENABLED: true
+    MAX-VL: 40
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.25
+    BUFFER-FLAG: 3
+
+  KillAuraH:
+    ENABLED: true
+    MAX-VL: 40
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.0005
+    BUFFER-FLAG: 3
+
+  # ReachA is not an "advanced check", so it will false if server/player lags and attack.
+  ReachA:
+    ENABLED: true
+    MAX-REACH: 3.00999
+    MAX-VL: 40
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.00005
+    BUFFER-FLAG: 2
+
+  VelocityA:
+    ENABLED: true
+    MAX-VL: 40
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.05
+    BUFFER-FLAG: 3
+
+  VelocityB:
+    ENABLED: true
+    MAX-VL: 40
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.05
+    BUFFER-FLAG: 3
+
+  WTapA:
+    ENABLED: true
+    MAX-VL: 40
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.05
+    BUFFER-FLAG: 4
+
+
+  # Movement
+
+  FakeGroundA:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.75
+    BUFFER-REDUCE: 0.005
+    BUFFER-FLAG: 5
+
+  FlightA:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.5
+    BUFFER-REDUCE: 0.0075
+    BUFFER-FLAG: 5
+
+  FlightB:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.75
+    BUFFER-REDUCE: 0.005
+    BUFFER-FLAG: 5
+
+  FlightC:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.75
+    BUFFER-REDUCE: 0.005
+    BUFFER-FLAG: 5
+
+  FlightD:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.75
+    BUFFER-REDUCE: 0.005
+    BUFFER-FLAG: 5
+
+  FlightE:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.75
+    BUFFER-REDUCE: 0.005
+    BUFFER-FLAG: 5
+
+  GhostBlockA:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 2.5
+    BUFFER-REDUCE: 0.005
+    BUFFER-FLAG: 5
+
+  GhostBlockB:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.075
+    BUFFER-FLAG: 3
+
+  JesusA:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.75
+    BUFFER-REDUCE: 0.005
+    BUFFER-FLAG: 5
+
+  JesusB:
+    ENABLED: true
+    MAX-VL: 10
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.75
+    BUFFER-REDUCE: 0.005
+    BUFFER-FLAG: 5
+
+  MotionA:
+    ENABLED: true
+    MAX-VL: 20
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.3
+    BUFFER-FLAG: 6
+
+  SpeedA:
+    ENABLED: true
+    MAX-VL: 20
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.005
+    BUFFER-FLAG: 5
+
+  SpeedB:
+    ENABLED: true
+    MAX-VL: 20
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.005
+    BUFFER-FLAG: 5
+
+  SpeedC:
+    ENABLED: true
+    MAX-VL: 20
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.005
+    BUFFER-FLAG: 5
+
+  SpeedD:
+    ENABLED: true
+    MAX-VL: 20
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.75
+    BUFFER-REDUCE: 0.005
+    BUFFER-FLAG: 5
+
+  SpeedE:
+    ENABLED: false
+    MAX-VL: 20
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.5
+    BUFFER-REDUCE: 0.35
+    BUFFER-FLAG: 8
+
+  SpiderA:
+    ENABLED: true
+    MAX-VL: 20
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.75
+    BUFFER-REDUCE: 0.05
+    BUFFER-FLAG: 5
+
+  SpiderB:
+    ENABLED: true
+    MAX-VL: 20
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.75
+    BUFFER-REDUCE: 0.05
+    BUFFER-FLAG: 5
+
+  StepA:
+    ENABLED: true
+    MAX-VL: 5
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.75
+    BUFFER-REDUCE: 0.05
+    BUFFER-FLAG: 3
+
+
+  # Player
+
+  TimerA:
+    ENABLED: true
+    MAX-VL: 20
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.75
+    BUFFER-REDUCE: 0.075
+    BUFFER-FLAG: 8
+
+  TimerB:
+    ENABLED: false
+    MAX-VL: 20
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1.1
+    BUFFER-REDUCE: 0.85
+    BUFFER-FLAG: 10
+
+  # I don't recommend to kick/ban players for TimerC because it is a negative Timer check, and it can false a lot.
+  TimerC:
+    ENABLED: false
+    MAX-VL: 55
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1.1
+    BUFFER-REDUCE: 0.85
+    BUFFER-FLAG: 10
+
+  TimerD:
+    ENABLED: true
+    MAX-VL: 55
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.75
+    BUFFER-REDUCE: 0.05
+    BUFFER-FLAG: 5
+
+  TimerE:
+    ENABLED: true
+    MAX-VL: 55
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.75
+    BUFFER-REDUCE: 0.2
+    BUFFER-FLAG: 15
+
+  BaritoneA:
+    ENABLED: true
+    MAX-VL: 40
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.75
+    BUFFER-REDUCE: 0.05
+    BUFFER-FLAG: 5
+
+  ChatA:
+    ENABLED: true
+    MAX-VL: 1
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 2
+    BUFFER-REDUCE: 0.05
+    BUFFER-FLAG: 1
+
+  CrasherA:
+    ENABLED: true
+    MAX-VL: 1
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 2
+    BUFFER-REDUCE: 0.05
+    BUFFER-FLAG: 1
+
+  CrasherB:
+    ENABLED: true
+    MAX-VL: 1
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 2
+    BUFFER-REDUCE: 0.05
+    BUFFER-FLAG: 1
+
+  CrasherC:
+    ENABLED: true
+    MAX-VL: 1
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 2
+    BUFFER-REDUCE: 0.05
+    BUFFER-FLAG: 1
+
+  HackedClientA:
+    ENABLED: true
+    MAX-VL: 1
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1.5
+    BUFFER-REDUCE: 0.00000000000005
+    BUFFER-FLAG: 1
+
+  HackedClientB:
+    ENABLED: true
+    MAX-VL: 1
+    PUNISHMENT: "ALERT"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.05
+    BUFFER-FLAG: 0.75
+
+  InventoryA:
+    ENABLED: true
+    MAX-VL: 20
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.75
+    BUFFER-REDUCE: 0.0005
+    BUFFER-FLAG: 5
+
+  PayloadA:
+    ENABLED: true
+    MAX-VL: 1
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.000000000001
+    BUFFER-FLAG: 0.00001
+
+  PingSpoofA:
+    ENABLED: true
+    MAX-VL: 15
+    PUNISHMENT: "ALERT"
+    MAX-PING: 99999999999999
+    MIN-TPS: 2
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.0005
+    BUFFER-FLAG: 3
+
+  PingSpoofB:
+    ENABLED: true
+    MAX-VL: 15
+    PUNISHMENT: "ALERT"
+    MAX-PING: 99999999999999
+    MIN-TPS: 2
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.05
+    BUFFER-FLAG: 5
+
+  PingSpoofC:
+    ENABLED: true
+    MAX-VL: 15
+    PUNISHMENT: "ALERT"
+    MAX-PING: 99999999999999
+    MIN-TPS: 2
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.0005
+    BUFFER-FLAG: 3
+
+  PingSpoofD:
+    ENABLED: false
+    MAX-VL: 15
+    PUNISHMENT: "ALERT"
+    MAX-PING: 99999999999999
+    MIN-TPS: 2
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.0005
+    BUFFER-FLAG: 3
+
+  ProtocolA:
+    ENABLED: true
+    MAX-VL: 5
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.0005
+    BUFFER-FLAG: 3
+
+  ProtocolB:
+    ENABLED: true
+    MAX-VL: 5
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1.5
+    BUFFER-REDUCE: 0.0005
+    BUFFER-FLAG: 1
+
+
+  # World
+
+  BuildReachA:
+    ENABLED: true
+    MAX-VL: 20
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.75
+    BUFFER-REDUCE: 0.005
+    BUFFER-FLAG: 8
+
+  FastPlaceA:
+    ENABLED: true
+    MAX-VL: 20
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.5
+    BUFFER-REDUCE: 0.005
+    BUFFER-FLAG: 8
+
+  FastPlaceB:
+    ENABLED: true
+    MAX-VL: 20
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 0.5
+    BUFFER-REDUCE: 0.05
+    BUFFER-FLAG: 8
+
+  ScaffoldA:
+    ENABLED: true
+    MAX-VL: 20
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.00005
+    BUFFER-FLAG: 2
+
+  ScaffoldB:
+    ENABLED: true
+    MAX-VL: 20
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.05
+    BUFFER-FLAG: 5
+
+  ScaffoldC:
+    ENABLED: true
+    MAX-VL: 20
+    PUNISHMENT: "KICK"
+    MAX-PING: 2000
+    MIN-TPS: 12
+    BUFFER-ADD: 1
+    BUFFER-REDUCE: 0.05
+    BUFFER-FLAG: 5

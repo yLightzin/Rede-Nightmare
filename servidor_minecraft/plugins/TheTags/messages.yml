@@ -1,0 +1,128 @@
+MESSAGES:
+  PLACEHOLDER:
+    NOT_AVAILABLE: Not available for you
+  TAGS:
+    ALREADY_SELECTED: '&6&lTags &8┃ &eYou already have this tag enabled!'
+    SELECTED: '&6&lTags &8┃ &F!You selected the tag &e{1}!'
+    CLEARED: '&6&lTags &8┃ &fYou cleared your current tag.'
+    NOT_SELECTED: '&6&lTags &8┃ &fYou have no tag selected.'
+  GUI:
+    COUNTDOWN: '&fYou must wait &a{1} &fseconds before clicking again.'
+    CURRENCY:
+      INVALID: '&cError: Currency management is not configured correctly.'
+      ERROR: '&cError occurred during purchase. Please try again later.'
+      SUCCESS: '&aYou have purchased the tag &2{1} &aand paid {2} $'
+  
+  COMMANDS:
+    NOPERMS: '&cYou don''t have permission {1} to use the command.'
+    NOPERMS_LOGGER: '&cUser {1} does not have permission {2}'
+    HELP_CONSOLE: |-
+      &7
+      &e&l BASIC CONSOLE COMMANDS
+      &7
+      &8 » &e/{cmd} reload &8- &fReloads the configuration
+      &8 » &e/{cmd} help &8- &fView help message
+      &8 » &e/{cmd} addtokens <player> <amount> &8- &fadd exchange tokens to players
+      &8 » &e/{cmd} removetokens <player> <amount> &8- &fremove player exchange tokens
+      &8 » &e/{cmd} settokens <player> <amount>  &8- &fset up player exchange tokens
+      &7
+      &8 » &e/{cmd} removedata current|custom|tags <player> &8- &fDelete specific player data
+      &8 » &e/{cmd} removealldata <player> &8- &fDelete all data of a player
+    HELP:
+    - '&e&lBASIC COMMANDS'
+    - '&7'
+    - '&8 » &e/{shortenedcmd} &8- &fOpen the tag menu'
+    - '&8 » &e/{cmdtag} &8- &fConfigure a custom tag'
+    - '&7'
+    - '&8 » &e/{cmd} help &8- &fOpen the help gui'
+    - '&8 » &e/{cmd} reload &8- &fReload configuration'
+    - '&8 » &e/{cmd} addtokens <player> <amount> &8- &fadd exchange tokens to players'
+    - '&8 » &e/{cmd} removetokens <player> <amount> &8- &fremove player exchange tokens'
+    - '&8 » &e/{cmd} settokens <player> <amount>  &8- &fset up player exchange tokens'
+    - '&7'
+    - '&8 » &e/{cmd} removedata current|custom|tags <player> &8- &fDelete specific player data'
+    - '&8 » &e/{cmd} removealldata <player> &8- &fDelete all data of a player'
+    
+    HELP_USAGE: '&cCorrect usage: /{cmd} help (page)'
+    USAGE: '&cNo such command. please type /{cmd} help for more info'
+    
+    # Reload
+    RELOAD: '&aAll YML files have been successfully reset.'
+    RELOAD_COOLDOWN: You must wait {1} before reloading the configuration.
+    
+    # GTag
+    CUSTOM_TAG:
+      NOPERMS: '&cNo tienes permisos para usar las etiquetas custom :('
+      CANCEL: '&cProcess canceled'
+      MAX_LENGTH: The text cannot exceed {1} characters.
+      SUCCESS: '&aYour tag has been successfully changed.'
+      USAGE: '&aType your new tag in the chat or type cancel to cancel.'
+      ALREADY: '&cThat tag is already equipped, try another.'
+      CONFIRM: '&eDo you want to use the tag {1}{2}, &eType ''confirm'' to use or type ''cancel'' to cancel.'
+    CUSTOM_TAG_USAGE: '&cCorrect usage: /gtag '
+    CUSTOM_TAG_NOT_ENOUGH: '&cYou do not have enough tokens to change your tag.'
+    CUSTOM_TAG_COUNTDOWN: '&cYou must wait {1} before changing your tag again.'
+    
+    # AddTokens | RemoveTokens
+    CUSTOM_TAG_ADD_REMOVE_USAGE: '&cUsage: /gtag <addtokens|removetokens> <player> <amount>'
+    CUSTOM_TAG_ADD_REMOVE_TYPE: '&cAction must be ''addtokens'', ''settokens'', or ''removetokens''.'
+    CUSTOM_TAG_ADD_REMOVE_INVALID_VALUE: '&cAmount must be a valid number.'
+    CUSTOM_TAG_ADD_REMOVE_NOT_EXIST: '&cNo player information found for {1}.'
+    CUSTOM_TAG_ADD: '&a{1} has been given a total of {2} exchange tokens.'
+    CUSTOM_TAG_SET: '&a{1} has been set {2} exchange tokens.'
+    CUSTOM_TAG_REMOVE: '&c{1} exchange tokens have been removed from {2}.'
+    CUSTOM_TAG_REMOVE_MIN_VALUE: '&cThe number cannot exceed 0.'
+    
+    # Shortened
+    SHORTENED_OPEN: '&aOpening the tags menu'
+    SHORTENED_OPEN_CONSOLE: '&cOnly players can execute this command.'
+    
+    # Info
+    INFO_USAGE: '&cCorrect usage: /{cmd} info <player>'
+    INFO_DATA_NOT_FOUND: '&cNo player information found {1}'
+    INFO: |-
+      &7
+      &8 ■ &fPlayer information &a{1}
+      &8 ■ &fTotal Tags: &a{2}
+      &8 ■ &fTags Purchased: &a{3} &8| &fTags with permissions: &a{4}
+      &7
+      &8 ■ &fList of Tags: &a{5}
+      &7
+      &8 ■ &fCurrent Tag: &7{6} &8({7}&8) - &fTitle: &a{8} &fColor: &a[{9}]
+      &8 ■ &fCustom Tag: {10} &8(Tokens {11}&8) - &fNext Token: &a{12} &8[&fCountdown:&a {13}&8] &fHistory: &a{14}
+      &8 ■ &fMenu Order: &a&l{15} &8- &a&l{16}
+      &7
+    TRANSFER_USAGE: '&cCorrect usage: /{cmd} transfer all|tags|custom|current <player> [player].'
+    TRANSFER_DATA_NOT_FOUND: '&cNo player information found {1}'
+    TRANSFER: '&cData of type {1} has been transferred from player {2} to player {3}.'
+    
+    # Remove
+    REMOVE_USAGE: '&cCorrect usage: /{cmd} remove tags|custom|current <player> [value].'
+    REMOVE_TAGS_USAGE: '&cCorrect usage: /{cmd} remove tags <player> [tagName].'
+    REMOVE_DATA_NOT_FOUND: '&cNo player information found for {1} in values {2}'
+    REMOVE_TAG: '&a{1} tag has been removed for player {2}.'
+    REMOVE_TAG_INVALID_VALUE: '&cTag {1} not found.'
+    REMOVE_CUSTOM: '&cCustom tag has been removed for player {1}.'
+    REMOVE_CURRENT: '&cCurrent tag has been removed for player {1}.'
+    REMOVE_INVALID_TYPE: '&cUnknown type, use tags, custom or current'
+    
+    # GUI FLAG
+    REMOVE_CONFIRM:
+      USAGE: '&aAre you sure you want to delete {1}''s data? (yes/no)'
+      SUCCESS: '&aData for player {1} deleted successfully'
+      CANCEL: '&cProcess canceled.'
+    
+    # Delete all
+    REMOVEALL: '&cAll rewards for {1} have been removed.'
+    REMOVEALL_USAGE: '&cCorrect usage: /{cmd} removeall <player>.'
+    
+    
+    SET_USAGE: '&cCorrect usage: /{cmd} set (type) (player) (values)'
+    SET_TAG_USAGE: '&cCorrect usage: /{cmd} set tag (player) (tag) (Optional color)'
+    SET_DATA_NOT_FOUND: '&cNo player information found for {1} in values {2}'
+    SET_TAG: '&aThe tag id: {1} has been correctly applied to the player {2}.'
+    SET_TAG_INVALID_VALUE: '&cTag {1} not found.'
+    SET_CUSTOM: '&aSe a configurado el tag custom {1} al jugador {2}'
+
+
+file-version: 1

@@ -1,0 +1,171 @@
+####################################### CONFIGURATION #######################################
+
+config-version: "7" # Do NOT modify this, just if you download an Update and it's not updated automatically
+
+database:
+  host: "hostname"
+  port: 3306
+  database: "database"
+  username: "username"
+  password: "password"
+  autoReconnect: true
+  useSSL: true
+  waitTimeout: 28800
+
+
+####################################### MAIN CONFIGURATION #######################################
+
+messages:
+  player-only-command: "&cThis command is exclusive to players! Try not to use it from the console, buddy."
+  no-permission: "&cSeems like you're trying to access something out of your league. Permission denied."
+  staff-mode-enabled: "&aBuckle up, %player%! Staff Mode is now active. Time to keep the server safe."
+  staff-mode-disabled: "&cAlright, %player%, taking a break? Staff Mode is now OFF. Enjoy your normal player privileges."
+  staff-mode-disabled-on-leave: "&cNote to %player%: We've turned off Staff Mode since you left."
+  cannot-place-blocks: "&cWhoa there! Placing blocks in Staff Mode? I think not, keep it clean"
+  cannot-break-blocks: "&cBreaking blocks in Staff Mode? Not on my watch."
+  item-frame-interact-disabled: "&cTrying to decorate while on Staff Mode? Item frame interactions are a no-go in Staff Mode."
+  silent-chest-open: "&aYou just silently opened a chest. No one heard a thing."
+  silent-chest-name: "&eSilent Chest&7 (Shh... It's a secret)"
+  staff-mode-disabled-death: "&cOof, death comes for us all, even in Staff Mode. %player%, your Staff Mode has been disabled."
+  click-to-toggle-vanish: "&7Use this item &7to become invisible to other &aplayers &7easily."
+  vanish-active: "&aYou're now invisible. Vanish (Active). Enjoy moving unseen."
+  vanish-inactive: "&cYou've reappeared to other players, Vanish (Inactive)."
+
+####################################### FREEZE #######################################
+
+freeze:
+  item-name: "&7( &bFreeze &7)"
+  item-lore: "&7With &7( &bFreeze &7) &7item, you can freeze other players,\n&7making situations &bsecure &7and &bmanageable &7easily."
+  freeze-message: "&7&m---------------------------------------\n&eYou have been frozen by a staff member.\n&eAttempting to disconnect will result in a &c&lPERMANENT BAN&e.\n&eFor your next steps, please connect with us on Discord: &7(https://discord.gg/gKYkEggeKv) &e[Click Invite to join].\n&7&m---------------------------------------"
+  click-here: "&e [Invite]"
+  discord-hover: "&eHop into our Discord for assistance!"
+  broadcast-frozen: "&cALERT: %player% has been frozen by %executor%. ❄️"
+  unfreeze-message: "&aYou've been unfreezed out by %executor%."
+  broadcast-unfrozen: "&aGood news! %player% is no longer frozen, thanks to %executor%."
+  command-blocked: "&cSorry, you can't use this command while you're frozen. Patience is key."
+  default-executor-name: "&cSystem Override"
+  cage-floor-material: "ICE"
+  non-player-interaction-message: "&cThis item can only be used on players!"
+  air-interaction-message: "&cThis tool can only be used on players!"
+  ground-interaction-message: "&cThis tool can only be used on players!"
+  blocked-commands:
+    - "/help"
+    - "/msg"
+    - "/reply"
+    - "/m"
+    - "/tell"
+    - "/r"
+
+####################################### INVSEE #######################################
+
+invsee:
+  item-name: "&7( &4Invsee &7)"
+  item-lore: "&7Click with this item, to view a &4player's &7inventory!"
+  no-permission-view: "&cYou do not have permission to view inventories."
+  clear-inventory-prefix: "&cClear "
+  clear-inventory-message: "&a%target%'s inventory has been cleared."
+  no-clear-permission: "&cYou do not have permission to clear inventories. You need the 'bstaffteam.clear' permission."
+  inventory-title: "&e%target%'s Inventory"
+  non-player-interaction-message: "&cYou can only use this item on players!"
+  air-interaction-message: "&cThis tool can only be used on players!"
+  ground-interaction-message: "&cThis tool can only be used on players!"
+
+####################################### RANDOM TELEPORT #######################################
+
+randomtp:
+  item-name: "&7( &cRandom Teleport &7)"
+  item-lore: "&7Use &7( &cRandom Teleportation &7) &7to randomly teleport\n&7to players on the server."
+  teleport-success: "&aYou have been teleported to %target%."
+  no-players: "&cThere are no other players on the server to teleport to."
+  cooldown-message: '&cYou can''t use this for another %time% seconds.'
+
+####################################### TELEPORT #######################################
+
+teleport:
+  item-name: "&7( &aTeleport &7)"
+  item-lore: "&7Use &7( &aTeleport &7) &7to easily teleport.\n&7Look where you want to teleport, then &aRight Click &7to teleport there!"
+  too-high-message: "&9You are looking too high to teleport!"
+
+####################################### STAFF GUI #######################################
+
+staffgui:
+  item-name: "&7( &6Staff Gui &7)"
+  item-lore: "&7With &7( &6Staff Gui &7) &7you can check how many\n&7Staff Members &7are currently present on the server.\n&7This helps track staff &6presence &7and &6availability."
+  gui-title: "&5Staff Members"
+  player-options-title: "&cPlayer Options"
+  ban-button: "&cBan"
+  demote-button: "&eDemote"
+  tp-button: "&aTeleport to Player"
+  ban-command: "ban %player% Kicked by a staff member"
+  ban-kick-message: "You have been banned by a staff member"
+  ban-success-message: "You banned "
+  demote-success-message: "You demoted "
+  tp-success-message: "You teleported to "
+  self-action-message: "You cannot perform actions on yourself!"
+  rank-prefix: "&7Rank: "
+  expiry-date-prefix: "&7Expiry Date: "
+  no-expiry: "&7No expiry date"
+  date-format: "yyyy-MM-dd"
+  online-status: "&a Online"
+  offline-status: "&c Offline"
+
+####################################### STAFFCHAT #######################################
+
+staffchat:
+  command-only-player: "&cThis command can only be used by players."
+  no-permission: "&cYou do not have permission to use staff chat."
+  message-required: "&cPlease enter a message."
+  chat-format: "&7[&6StaffChat&7] &6%player_name% &7» &f%message% &7(&6%server_name%&7)"
+  server-name: "ByteForge Dev's"
+
+####################################### RELOAD #######################################
+
+reload:
+  config-reloaded: "&aThe config has been reloaded."
+  command-player-only: "&cThis command can only be used by players."
+  no-permission: "&cYou do not have permission to perform this command."
+
+####################################### WEBHOOKS #######################################
+
+webhook:
+  url: "webhook"
+  useWebhook: true
+  color: 65280 # This is a hexadecimal color code (for example, green).
+
+discordwebhook:
+  title: "bStaffTeam 1.0.3"
+  description: "> A significant event has occurred within the staff mode functionality. Detailed information is provided below to ensure transparency and maintain a secure environment for all users."
+  authorName: "Staff Member » %staffName%"
+  footerText: "bStaffTeam Notifications"
+
+webhookmessages:
+  staff-mode-enter: "The person entered StaffMode."
+  staff-mode-exit: "The person exited StaffMode."
+  staff-mode-disabled-on-leave: "The person exited while in Staff Mode, therefore we deactivated their staff mode. (Deactivated)"
+  staff-mode-death: "The person died in StaffMode, therefore we deactivated it and deleted their items! (Deactivated)"
+  open-chest-silently: "The user opened a chest in StaffMode. (OpenedChestSilently)"
+
+####################################### RESTORE #######################################
+
+inventoryRestore:
+  itemName: "&7( &5Inventory Restore &7)"
+  itemLore: "&7With this &7( &5Inventory Restore &7) &7item, you can check\n&7and restore players' inventories."
+  guiTitle: "&cSelect an Option - %player%"
+  deathOptionsName: "&4Death Options"
+  deathOptionsLore: "&7View death-related options."
+  restoreInventoryName: "&2Restore Inventory"
+  restoreInventoryLore: "&7Restore the player's inventory."
+  noPermission: "&cYou do not have permission to use this item."
+  restoreSuccess: "&aThe inventory of %player% has been restored."
+  noDeathLogSelected: "&cNo death log selected."
+  invalidId: "&cInvalid death log ID."
+  inventoryRestored: "&aYour inventory and armor have been restored."
+  adminCheckingTitle: "&4Admin Checking.. - %player%"
+  deathReasons:
+    entity_attack: "Attack by creature"
+    fall: "He fell from a height"
+    drowning: "He drowned"
+    fire: "Burned in a fire"
+    explosion: "He died in an explosion"
+    starvation: "Starved to death"
+    unknown: "Unknown"

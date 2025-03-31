@@ -1,0 +1,453 @@
+inventories:
+  colors:
+    title: '&8☀ Select a color'
+    size: 45
+    colors_icons:
+      slots: 10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30
+      list:
+      - RED;thetags.color.red
+      - GREEN;thetags.color.green
+      - DARK_BLUE;thetags.color.darkblue
+      - GRAY;thetags.color.gray
+      - YELLOW;thetags.color.yellow
+      - GOLD;thetags.color.gold
+      - DARK_RED;thetags.color.darkred
+      - BLACK;thetags.color.black
+      - BLUE;thetags.color.blue
+    items:
+      icon:
+        unavailable:
+          material: BOOK
+          display_name: '&a{color}'
+          amount: 1
+          model_data: 0
+          item_flags:
+          - HIDE_ATTRIBUTES
+          glowing: false
+          lore:
+          - ' &8● &cYou do not have permission'
+          - '    &c{permission} to use this color.'
+          - ''
+          - ' &8● &fColor: &c&l{color}'
+          - ' &8● &fState: &c&lBLOQUEADO'
+          - ''
+          - '&c► You have no permissions.'
+        
+        available:
+          material: BOOK
+          display_name: '&a{color}'
+          amount: 1
+          model_data: 0
+          item_flags:
+          - HIDE_ATTRIBUTES
+          glowing: false
+          lore:
+          - ' &8● &fThis will be the color of'
+          - '    &fyour selected label.'
+          - ''
+          - ' &8● &fColor: &c&l{color}'
+          - ' &8● &fPreview: {pattern}{tag}'
+          - ''
+          - '&e► Click to select!'
+    
+    custom-items:
+      back:
+        material: ARROW
+        slot: 39
+        amount: 1
+        model_data: 0
+        glowing: false
+        item_flags:
+        - HIDE_ATTRIBUTES
+        display_name: '&cBack'
+        lore: []
+        actions:
+        - '[openmenu] tags'
+      close:
+        material: BOOK
+        slot: 40
+        amount: 1
+        model_data: 0
+        glowing: false
+        item_flags:
+        - HIDE_ATTRIBUTES
+        display_name: '&cClose'
+        lore: []
+        actions:
+        - '[close]'
+  history:
+    title: '&8☀ Custom Tag History'
+    size: 54
+    history_icons:
+      slots: 10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43
+    items:
+      used:
+        material: BOOK
+        display_name: '&aHistory Slot'
+        slot: 48
+        amount: 1
+        model_data: 0
+        item_flags:
+        - HIDE_ATTRIBUTES
+        glowing: false
+        click_type:
+        - left;equip
+        - right;delete
+        lore:
+        - '&7Este historial te permitira'
+        - '&7equipar tu tag cuantas veces quieras'
+        - ''
+        - '&fTag: &f{tag}'
+        - ''
+      clicked:
+        drop: '&e► Click to delete!'
+        both: '&e► Click to equip!'
+        left: '&e► Left Click equip!'
+        right: '&e► Right Click delete!'
+      
+      available:
+        material: LIME_STAINED_GLASS_PANE
+        display_name: '&aUnlocked space'
+        slot: 48
+        amount: 1
+        model_data: 0
+        item_flags:
+        - HIDE_ATTRIBUTES
+        glowing: false
+        lore:
+        - '&7You must clear or change custom tag'
+        - '&7to leave a history.'
+      unavailable:
+        material: RED_STAINED_GLASS_PANE
+        display_name: '&cBlocked space...'
+        slot: 48
+        amount: 1
+        model_data: 0
+        item_flags:
+        - HIDE_ATTRIBUTES
+        glowing: false
+        lore:
+        - '&7By default you only have one space'
+        - '&7of history, you can unlock'
+        - '&7one more space for each rank'
+    custom-items:
+      back:
+        material: ARROW
+        slot: 48
+        amount: 1
+        model_data: 0
+        glowing: false
+        item_flags:
+        - HIDE_ATTRIBUTES
+        display_name: '&cBack'
+        lore: []
+        actions:
+        - '[openmenu] tags'
+      close:
+        material: BOOK
+        slot: 49
+        amount: 1
+        model_data: 0
+        glowing: false
+        item_flags:
+        - HIDE_ATTRIBUTES
+        display_name: '&cClose'
+        lore: []
+        actions:
+        - '[close]'
+  tags:
+    title: '&8☀ Tags                   [Pag {page}/{totalpages}]'
+    size: 54
+    tags_icons:
+      slots: 10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43
+    items:
+      clean:
+        material: BARRIER
+        display_name: '&aClean Tag'
+        slot: 4
+        amount: 1
+        model_data: 0
+        item_flags:
+        - HIDE_ATTRIBUTES
+        glowing: true
+        lore:
+        - '&8Quick Access'
+        - ''
+        - '&fDelete the tag you currently have.'
+        - '&a(If it is a custom tag it will go to your history)'
+        - ''
+        - '&e▸ Click to delete!'
+      historyCustomTag:
+        material: CHEST
+        display_name: '&aCustomized tags history'
+        slot: 47
+        amount: 1
+        model_data: 0
+        item_flags:
+        - HIDE_ATTRIBUTES
+        glowing: true
+        lore:
+        - '&8Quick Access'
+        - ''
+        - '&fThis is a history of Custom Tags'
+        - '&fthat you have changed'
+        - ''
+        - '&fWays to get more spaces'
+        - ' &8- &fBy having a Rank '
+        - ''
+        - '&aWhy have more spaces?'
+        - '&fUsing your tag history saves you time'
+        - '&fwaiting to change your tag, as when you change'
+        - '&fTag through Tokens you have to wait 2 weeks.'
+        - ''
+        - '&e▸ Click to open history!'
+      customTag:
+        material: NAME_TAG
+        display_name: '&aTag Custom'
+        slot: 46
+        amount: 1
+        model_data: 0
+        item_flags:
+        - HIDE_ATTRIBUTES
+        glowing: false
+        lore:
+        - '&8Quick Access'
+        - ''
+        - '&fThe change token is used'
+        - '&fto change your custom tag'
+        - '&fevery 1 weeks you receive a token.'
+        - ''
+        - '&fYour Change Tokens: &a%thetags_tokens%'
+        - '&fNext Token: &a%thetags_next_token%'
+        - ''
+        - '&e▸ Click to change!'
+      search:
+        material: COMPASS
+        display_name: '&aSearch Tag'
+        slot: 53
+        amount: 1
+        model_data: 0
+        item_flags:
+        - HIDE_ATTRIBUTES
+        glowing: false
+        lore:
+        - '&8Quick Access'
+        - ''
+        - '&fThe change token is used'
+        - '&fto change your custom tag'
+        - '&fevery 1 weeks you receive a token.'
+        - ''
+        - ''
+        - '&e▸ Click to search!'
+      filter:
+        material: COMPARATOR
+        display_name: '&aUnlock Filter'
+        slot: 51
+        amount: 1
+        model_data: 0
+        item_flags:
+        - HIDE_ATTRIBUTES
+        glowing: false
+        lore:
+          all:
+          - '&8Quick Access'
+          - ''
+          - '&fFilter skins whether'
+          - '&fyou own them or not.'
+          - ''
+          - '&a ▸ ALL'
+          - '&f Owned'
+          - '&f Not Owned'
+          - ''
+          - '&e▸ Click to toggle!'
+          available:
+          - '&8Quick Access'
+          - ''
+          - '&fFilter skins whether'
+          - '&fyou own them or not.'
+          - ''
+          - '&f All'
+          - '&a ▸ Owned'
+          - '&f Not Owned'
+          - ''
+          - '&e▸ Click to toggle!'
+          unavailable:
+          - '&8Quick Access'
+          - ''
+          - '&fFilter skins whether'
+          - '&fyou own them or not.'
+          - ''
+          - '&f All'
+          - '&f Owned'
+          - '&a ▸ Not Owned'
+          - ''
+          - '&e▸ Click to toggle!'
+      order:
+        material: HOPPER
+        display_name: '&aModify Order'
+        slot: 52
+        amount: 1
+        model_data: 0
+        item_flags:
+        - HIDE_ATTRIBUTES
+        glowing: true
+        lore:
+          all:
+          - '&8Quick Access'
+          - ''
+          - '&fFilter skins how they are'
+          - '&fdisplayed below:'
+          - ''
+          - '&a ▸ ALL'
+          - '&f A to Z'
+          - '&f Z to A'
+          - ''
+          - '&e▸ Click to toggle!'
+          a_z:
+          - '&8Quick Access'
+          - ''
+          - '&fFilter skins how they are'
+          - '&fdisplayed below:'
+          - ''
+          - '&f ALL'
+          - '&a ▸ A to Z'
+          - '&f Z to A'
+          - ''
+          - '&e▸ Click to toggle!'
+          z_a:
+          - '&8Quick Access'
+          - ''
+          - '&fFilter skins how they are'
+          - '&fdisplayed below:'
+          - ''
+          - '&f ALL'
+          - '&f A to Z'
+          - '&a ▸ Z to A'
+          - ''
+          - '&eC▸ lick to toggle!'
+      buttons:
+        next:
+          material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjgyYWQxYjljYjRkZDIxMjU5YzBkNzVhYTMxNWZmMzg5YzNjZWY3NTJiZTM5NDkzMzgxNjRiYWM4NGE5NmUifX19
+          slot: 50
+          amount: 1
+          display_name: '&cNext page'
+          glowing: false
+          item_flags:
+          - HIDE_ATTRIBUTES
+          lore: []
+        previous:
+          material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzdhZWU5YTc1YmYwZGY3ODk3MTgzMDE1Y2NhMGIyYTdkNzU1YzYzMzg4ZmYwMTc1MmQ1ZjQ0MTlmYzY0NSJ9fX0=
+          slot: 48
+          amount: 1
+          display_name: '&cPrevious page'
+          glowing: false
+          item_flags:
+          - HIDE_ATTRIBUTES
+          lore: []
+    custom-items:
+      close:
+        material: BOOK
+        slot: 49
+        amount: 1
+        model_data: 0
+        glowing: false
+        item_flags:
+        - HIDE_ATTRIBUTES
+        display_name: '&cClose'
+        lore: []
+        actions:
+        - '[close]'
+  confirm-buy:
+    title: '&8☀ Confirm'
+    size: 27
+    items:
+      selected:
+        material: NAME_TAG
+        display_name: '&a{tag}'
+        slot: 13
+        amount: 1
+        model_data: 0
+        item_flags:
+        - HIDE_ATTRIBUTES
+        glowing: true
+        lore:
+        - '&e▸ Click to confirm!'
+      
+      confirm:
+        material: LIME_STAINED_GLASS_PANE
+        display_name: '&aConfirm'
+        slots:
+        - '[0-2]'
+        - '[9-11]'
+        - '[18-20]'
+        amount: 1
+        model_data: 0
+        item_flags:
+        - HIDE_ATTRIBUTES
+        glowing: true
+        lore:
+        - '&e▸ Click to confirm!'
+      cancel:
+        material: RED_STAINED_GLASS_PANE
+        display_name: '&cCancel'
+        slots:
+        - '[6-8]'
+        - '[15-17]'
+        - '[24-26]'
+        amount: 1
+        model_data: 0
+        item_flags:
+        - HIDE_ATTRIBUTES
+        glowing: true
+        lore:
+        - '&e▸ Click to cancel!'
+    
+    custom-items: []
+  confirm-delete-history:
+    title: '&8☀ Confirm History'
+    size: 27
+    items:
+      selected:
+        material: NAME_TAG
+        display_name: '&a{tag}'
+        slot: 13
+        amount: 1
+        model_data: 0
+        item_flags:
+        - HIDE_ATTRIBUTES
+        glowing: true
+        lore:
+        - '&e▸ Click to confirm!'
+      
+      confirm:
+        material: LIME_STAINED_GLASS_PANE
+        display_name: '&aConfirm'
+        slots:
+        - '[0-2]'
+        - '[9-11]'
+        - '[18-20]'
+        amount: 1
+        model_data: 0
+        item_flags:
+        - HIDE_ATTRIBUTES
+        glowing: true
+        lore:
+        - '&e▸ Click to confirm!'
+      cancel:
+        material: RED_STAINED_GLASS_PANE
+        display_name: '&cCancel'
+        slots:
+        - '[6-8]'
+        - '[15-17]'
+        - '[24-26]'
+        amount: 1
+        model_data: 0
+        item_flags:
+        - HIDE_ATTRIBUTES
+        glowing: true
+        lore:
+        - '&e▸ Click to cancel!'
+    
+    custom-items: []
+
+file-version: 1

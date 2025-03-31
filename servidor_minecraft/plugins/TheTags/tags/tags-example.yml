@@ -1,0 +1,61 @@
+name: tags-example
+material: NAME_TAG
+model_data: 0
+amount: 1
+glowing: false
+item_flags:
+- HIDE_ATTRIBUTES
+tag: '&e&k.&r &610CPS &e&k.&r'
+title: '&6⚡ Solo 10 CPS ⚡'
+display_name: '&6✎ TAG: &e&k.&r &610CPS &e&k.&r'
+require_permission:
+  enabled: false
+  permission: none
+  message: '&6&lLovyMc &8┃ &cNo tienes permiso para usar ese tag.'
+purchase_requires:
+  enabled: true
+  type: PLAYER_POINTS
+  price: 500
+  message: '&cNo puedes permitirte comprar este tag.'
+lore:
+  locked:
+  - '&8Etiqueta'
+  - ''
+  - ' &8● &fUna etiqueta especial que se'
+  - '   &fmostrará en el Tabulador y junto'
+  - '   &fa tu nombre.'
+  - ''
+  - '&8Información:'
+  - ' &8❑ &fEtiqueta: &f{tag}'
+  - ' &8❐ &fTítulo: &f{title}'
+  - ' &8⌛ &fEstado: &cBloqueado'
+  - ''
+  - ' &8⛁ &fPrecio: &e${price} Tokens ❂'
+  - ' '
+  - '&6▸ ¡Haz clic para comprar esta etiqueta!'
+  unlocked:
+  - '&8Etiqueta'
+  - ''
+  - ' &8● &fUna etiqueta especial que se'
+  - '   &fmostrará en el Tabulador y junto'
+  - '   &fa tu nombre.'
+  - ''
+  - '&8Información:'
+  - ' &8❑ &fEtiqueta: &f{tag}'
+  - ' &8❐ &fTítulo: &f{title}'
+  - ' &8⌛ &fEstado: &aDisponible'
+  - ''
+  - '&e▸ ¡Haz clic para seleccionar esta etiqueta!'
+  selected:
+  - '&8Etiqueta'
+  - ''
+  - ' &8● &fUna etiqueta especial que se'
+  - '   &fmostrará en el Tabulador y junto'
+  - '   &fa tu nombre.'
+  - ''
+  - '&8Información:'
+  - ' &8❑ &fEtiqueta: &f{tag}'
+  - ' &8❐ &fTítulo: &f{title}'
+  - ' &8⌛ &fEstado: &eSeleccionado'
+  - ''
+  - '&a▸ ¡Seleccionado!'

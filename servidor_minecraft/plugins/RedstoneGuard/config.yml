@@ -1,0 +1,84 @@
+# RedstoneGuard Configuration
+
+# Block settings
+blocks:
+  threshold:
+    GLOBAL: 2  # Default threshold for all blocks. Increase for more redstone activity
+               # Set to -1 to disable specific component limiting
+               # Specific thresholds for different redstone components
+               # Higher values = more activations allowed before blocking
+    REDSTONE_WIRE: 2      # For redstone dust and clocks
+    REDSTONE_TORCH: 4     # For redstone torch circuits
+    REDSTONE_BLOCK: 3     # For redstone blocks
+    REPEATER: 2           # For repeater circuits
+    COMPARATOR: 4         # For comparator circuits
+    DISPENSER: 3          # For dispenser machines
+    DROPPER: 3            # For dropper systems
+
+# Chunk protection
+chunks:
+  threshold: 1024  # Maximum redstone activations per chunk
+                   # Set to -1 to disable chunk-based limiting
+                   # Increase for larger farms or set to -1 if you don't want chunk limits
+
+# Piston settings
+max_piston_push: 4  # Maximum blocks a piston can push
+                     # Increase this for larger piston-based farms
+                     # This affects farms that use pistons to break blocks
+
+# Block period (in milliseconds)
+block_period: 2000  # Time before resetting activation counts
+                    # Lower = more frequent activations allowed
+                    # Higher = more strict limiting
+                    # 1000 = 1 second, 3000 = 3 seconds
+
+# Visual effects when blocking redstone
+block_effect: SMOKE  # Options: SMOKE, FLAME, SPELL, etc.
+block_effect_data: 0
+
+# Cache settings
+cache:
+  expiry: 30000      # Cache expiry time in milliseconds (default: 30000 = 30 seconds)
+  cleanup_interval: 300000  # Cleanup interval in milliseconds (default: 300000 = 5 minutes)
+  initial_size: 1000   # Initial size for cache maps
+  use_concurrent_maps: true  # Use ConcurrentHashMap for better thread safety
+
+# Block tracking settings
+tracking:
+  # How blocks are identified in the tracking system
+  block_id_format: "%x%/%y%/%z%"  # Format for block IDs
+  chunk_id_format: "%x%/%z%"      # Format for chunk IDs
+
+# Effect settings
+effects:
+  offset:
+    x: 0.5  # X offset for effect location (default: 0.5)
+    y: 0.0  # Y offset for effect location (default: 0.0)
+    z: 0.5  # Z offset for effect location (default: 0.5)
+
+notifications:
+  staff:
+    enabled: true  # Enable/disable notifications
+    permission: "redstoneguard.notifications"  # Permission to receive notifications
+    threshold: 20  # Number of blocks before notification
+    cooldown: 20   # Time in seconds between notifications for the same chunk
+    messages:
+      alert: |-
+        &c[RedstoneGuard] &eSuspicious activity detected:
+        &7Location: &fx: %x%, y: %y%, z: %z%, world: %world%
+        &7Player: &e%player%
+        &7Blocks: &c%blocks% &7in the last &e%time% &7seconds
+
+# Messages (supports color codes with &)
+messages:
+  statistics: |-
+    &6=== RedstoneGuard Statistics ===
+    &7Total Activations: &e%total_redstone%
+    &7Blocked Actions: &c%blocked_redstone%
+    &7Current Period: &e%current_period%ms
+    &7Block Period: &e%block_period%ms
+    &7Global Threshold: &e%block_threshold%
+    &7Cache Status: &e%cache_stats%
+  no_permission: "&cYou don't have permission to use this command."
+  reload: "&aRedstoneGuard configuration reloaded successfully!"
+  argument_not_found: "&cUnknown argument: &e%argument%"

@@ -1,0 +1,30 @@
+teleportenabled: true
+teleportauto: false
+godmode: false
+muted: false
+jailed: false
+ip-address: 127.236.84.40
+afk: false
+socialspy: false
+npc: false
+powertoolsenabled: true
+accepting-pay: true
+baltop-exempt: false
+timestamps:
+  lastteleport: 0
+  lastheal: 0
+  mute: 0
+  jail: 0
+  onlinejail: 0
+  logout: 1743424212454
+  login: 1743424189075
+money: '0'
+last-account-name: Lightz_13
+logoutlocation:
+  world: 0fbc6f2e-d4b1-409f-92bb-cc38734f3c64
+  world-name: world
+  x: 47.8893847546561
+  y: 74.7388665898007
+  z: 35.24476730543252
+  yaw: 158.44155883789062
+  pitch: -15.163846969604492

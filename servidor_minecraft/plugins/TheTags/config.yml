@@ -1,0 +1,65 @@
+config:
+  #If you don't know what you are doing, don't change anything in this section.
+  prompt:
+    localEcho: false
+    timeout: 180
+  
+  #Disable metrics
+  metrics: true
+  #Disable the message that will pop up if there is an update.
+  update_checker: true
+  # Sort your tags by default or by priority.
+  order:
+  - Example
+  - Example2
+  
+  # Time the player must wait in milliseconds to click on another item in the inventory.
+  click_countdown: 1000
+  # It will reduce the message when loading the tags when using the reload command or when starting the plugin.
+  minimize_on_loading: true
+  # Does any tag purchase need to be confirmed?
+  buy_confirm_inventory: true
+  
+  #In this section you can add aliases or modify the base command of your choice.
+  command:
+    default:
+      enabled: true
+      #Base command name, requires a server restart
+      name: thetags
+      #Aliases for the command
+      aliases:
+      - jtag
+    
+    shortened_open_command:
+      enabled: true
+      need_permissions: true
+      permission: thetag.open
+      name: tags
+      aliases: []
+    
+    custom_tag_command:
+      enabled: true
+      need_permissions: true
+      permission: thetag.customtag
+      name: gtag
+      aliases: []
+      
+      tag:
+        countdown: 1800
+        length: 16
+      
+      tokens:
+        starting: 1
+        next_token_countdown: 604800
+        max_accumulations: 5
+  
+  storage-method: SQLite
+  
+  data:
+    address: 127.0.0.1
+    port: 3306
+    database: database
+    username: username
+    password: passy
+
+file-version: 1
